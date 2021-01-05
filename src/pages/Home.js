@@ -14,14 +14,16 @@ const Home = () => {
 
     const { mainContainer, title, poster, bestMovieWrapper, bestMovieWrapperText, star, starContainer, subTitle, miniCardContainer, cardPoster, cardWrapper } = styles;
 
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(false);
     const [downloadImage, setDownLoadImage] = useState(false)
     const [visible, setVisible] = useState(true)
     const menuControl = visible ? (<Text style={[title, { marginLeft: 10 }]}>Home</Text>) : (null);
 
     getMovies = () => {
+        setDownLoadImage(true)
         axios.get("http://www.omdbapi.com/?apikey=" + apikey.API_KEY + "&s=action")
-            .then(res => setMovies(res.data.Search))
+            .then(res => setMovies(res.data.Search), console.log("====>",movies))
             .catch(err => console.log(err))
     }
 
@@ -31,7 +33,7 @@ const Home = () => {
         return (
             <View style={cardWrapper}>
                 <View>
-                    {/* <Image source={{ uri: movies.item.Poster }} style={cardPoster} /> */}
+                    <Image source={{ uri: movie.item.Poster }} style={cardPoster} />
                 </View>
                 <View style={{ marginLeft: 10, justifyContent: "center" }}>
                     <Text style={title}>{movie.item.Title}{movie.item.Year}</Text>
@@ -55,8 +57,6 @@ const Home = () => {
 
     useEffect(() => {
         getMovies();
-
-        
     }, [])
     
 
@@ -69,10 +69,10 @@ const Home = () => {
 
             <View style={bestMovieWrapper}>
                 <View>
-                    {/* <Image source={{ uri: movies[2].Poster }} style={cardPoster} /> */}
+                    <Image source={{ uri: movies[2].Poster }} style={cardPoster} />
                 </View>
                 <View style={bestMovieWrapperText}>
-                    {/* <Text style={title}>{ movies[2].Title}({movies[2].Year})</Text> */}
+                    <Text style={title}>{ movies[2].Title}({movies[2].Year})</Text>
                     <View style={starContainer}>
                         <Image source={require("../icons/star.png")} style={star} />
                         <Image source={require("../icons/star.png")} style={star} />

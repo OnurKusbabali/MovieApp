@@ -13,7 +13,7 @@
     "@react-native-community/cameraroll": "^4.0.1",
     "axios": "^0.21.1",
     "react": "16.13.1",
-    "react-native": "0.63.4",
+    "react-native": "0.62.0",
     "react-native-gesture-handler": "^1.9.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-router-flux": "^4.2.0",
