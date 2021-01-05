@@ -31,7 +31,7 @@ const Home = () => {
         return (
             <View style={cardWrapper}>
                 <View>
-                    <Image source={{ uri: movies.item.Poster }} style={cardPoster} />
+                    {/* <Image source={{ uri: movies.item.Poster }} style={cardPoster} /> */}
                 </View>
                 <View style={{ marginLeft: 10, justifyContent: "center" }}>
                     <Text style={title}>{movie.item.Title}{movie.item.Year}</Text>
@@ -69,10 +69,10 @@ const Home = () => {
 
             <View style={bestMovieWrapper}>
                 <View>
-                    <Image source={{ uri: movies[2].Poster }} style={cardPoster} />
+                    {/* <Image source={{ uri: movies[2].Poster }} style={cardPoster} /> */}
                 </View>
                 <View style={bestMovieWrapperText}>
-                    <Text style={title}>{ movies[2].Title}({movies[2].Year})</Text>
+                    {/* <Text style={title}>{ movies[2].Title}({movies[2].Year})</Text> */}
                     <View style={starContainer}>
                         <Image source={require("../icons/star.png")} style={star} />
                         <Image source={require("../icons/star.png")} style={star} />
